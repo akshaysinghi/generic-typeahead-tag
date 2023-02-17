@@ -40,6 +40,17 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+To run production build on local:
+
+```bash
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+  Local:    http://localhost:3000
+
+```
+
 
 ## Question asked in assignment
 
