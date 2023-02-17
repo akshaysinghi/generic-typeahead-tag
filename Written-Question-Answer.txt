@@ -1,0 +1,93 @@
+1) Some ways to prevent unnecessary re-renders in React, and when would you use each technique?
+
+Re-render happens for a variety of reasons, including inefficient rendering logic 
+or suboptimal use of React's lifecycle methods. some ways to prevent unnecessary re-renders :
+
+-> Using React.memo: React.memo is a higher-order component that can be used 
+to memoize a component, which means that it will only re-render when its props have changed. 
+
+->Using shouldComponentUpdate lifecycle method: By default, React re-renders a component whenever its state or props change. 
+However, we can override this behavior by implementing the shouldComponentUpdate method
+
+-> Using useCallback and useMemo: these hooks we can be use to optimize the performance of functional components. 
+By memoizing the values, we can prevent unnecessary re-renders caused by the creation of new function or object references on 
+every render.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+2) some practical uses of React Context and React Hooks?
+
+usecase of React Context (in the application without the need to pass it down through props): 
+->When we implementing Theming where we used to provide a theme to all components.
+-> While providing authentication details to all components in the application.
+-> Multiple Language support we can provide and switch between different languages in the application 
+without the need to reload the entire page
+
+usecase of React Hooks (Functional Component):
+-> State management: useState, can be used to manage the state of components.
+-> Side effects: useEffect, can be used to manage side effects, such as fetching data from an API or subscribing to an event.
+-> Organize Code: using react hooks we can easily maintain the code, Also, useMemo and useCallback can be used to optimize 
+the performance of components 
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+3) Some other ways caching could be implemented for Typeahead? What are the differences and why might 
+you choose one over the other?
+
+While working on Typeahead to improve the performance and user experience, I used debouncing technique to avoid preventing
+simultaneous http request. Also, have used Browser Cache where we have stored previously fetched data for faster retrieval. 
+It helps to reduce the number of requests made to the server and improve the performance of the autocomplete feature.
+
+Other  ways:
+1) We use the local storage of the browser to store the search results via key-value paring. I have not used because to
+avoid writing setter getter.
+2) we can use Redis cache in our application.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+4) some practical steps to prevent XSS and CSRF?
+
+->As we have used React Libraries can help prevent XSS and CSRF attacks. For example, the react-cookie library we can be  
+to set HTTP-only, also react-router can help prevent CSRF attacks by using the csrf attribute in links and forms.
+
+->Using HTTPS secure protocol which encrypts data between the server and the client
+
+-> We can also use CSRF Tokens (Intercepting): CSRF attacks can be prevented by using CSRF tokens. unique value token is  
+generated for each user session and is included in every request. We can validate it with every request.
+
+->keeping all dependencies up to date version to avoid vulnerabilities in dependencies.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+5) When using traditional session cookies, what are the primary security concerns and mitigation techniques you might use 
+for common attacks?
+
+Session cookies can be hijacked. 
+sensitive information and session cookies which can be stolen through Cross-site scripting (XSS). 
+To avoid mitigating this attack, user input should be sanitized and validated through DOMPurify.
+
+to mitigate these concerns we can use secure cookies, Https, HttpOnly cookie and proper session management.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+6) Some advantages and disadvantages to using JWT for authorization and authentication in a web application?
+
+Advantages:
+-> JWT is Stateless and no session management is required.
+-> we can use jwt token in subdomains
+-> Easy to implement.
+
+disadvantages:
+-> If JWT token are not implemented securely token can be used for tampering.
+-> if JWT token expiration time is too long that can be open to security threats.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+7) Some new/interesting Web (browser), React features you are interested in, or have used recently for the first time?
+
+-> Use of react 18 with new features like automatic batching and good developer experience.
+-> Very interested in writing functional-based components with different folder structures.
+->  Using React Suspense which allows suspend the rendering of a component while data is being fetched.
+-> Using nextJS for managing state and SSR. 
